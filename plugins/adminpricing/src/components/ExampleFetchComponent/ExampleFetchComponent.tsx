@@ -1,61 +1,84 @@
 import React from 'react';
-import { Box, Card, CardContent, Typography } from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home'; 
-import InfoIcon from '@mui/icons-material/Info';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
+import { Box, Typography, Card, CardContent } from '@mui/material';
+import { NavLink, Routes, Route } from 'react-router-dom';
+import FlatComponent from './Flat';
 
-export  const ExampleFetchComponent: React.FC = () => {
+export const ExampleFetchComponent: React.FC = () => {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        padding: 2,
-        marginLeft: '2px',
-      }}
-    >
-  
-    {/* Row of Cards/Icons */}
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          gap: 2,
-          overflowX: 'auto',
-        }}
-      >
-        {/* Example cards/icons; add as needed */}
-        <Card sx={{ flex: '1 1 0px', minWidth: '100px' }}>
-          <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            
-            <Typography variant="h6">Flat</Typography>
-          </CardContent>
-        </Card>
-        <Card sx={{ flex: '1 1 0px', minWidth: '150px' }}>
-          <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-           
-            <Typography variant="h6">slab</Typography>
-          </CardContent>
-        </Card>
-        <Card sx={{ flex: '1 1 0px', minWidth: '150px' }}>
-          <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-           
-            <Typography variant="h6">dynamic</Typography>
-          </CardContent>
-        </Card>
-        <Card sx={{ flex: '1 1 0px', minWidth: '150px' }}>
-          <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          
-            <Typography variant="h6">intercity</Typography>
-          </CardContent>
-        </Card>
-        <Card sx={{ flex: '1 1 0px', minWidth: '150px' }}>
-          <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-           
-            <Typography variant="h6">Contact</Typography>
-          </CardContent>
-        </Card>
-      </Box>
+    <Box sx={{ display: 'flex', justifyContent: 'center', padding: 2 }}>
+      <Card sx={{ maxWidth: 1200, width: '100%', minHeight: 650, boxShadow: 2 }}>
+        <CardContent>
+          <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2, justifyContent: 'space-around' }}>
+            <NavLink
+              to="Flatcomponent"
+              style={({ isActive }) => ({
+                textDecoration: isActive ? 'underline' : 'none',
+                fontWeight: isActive ? 'bold' : 'normal',
+                color: isActive ? 'blue' : 'inherit',
+              })}
+            >
+              <Box sx={{ textAlign: 'center', cursor: 'pointer' }}>
+                <Typography variant="h6">Flat</Typography>
+              </Box>
+            </NavLink>
+            <NavLink
+              to="Slabcomponent"
+              style={({ isActive }) => ({
+                textDecoration: isActive ? 'underline' : 'none',
+                fontWeight: isActive ? 'bold' : 'normal',
+                color: isActive ? 'blue' : 'inherit',
+              })}
+            >
+              <Box sx={{ textAlign: 'center', cursor: 'pointer' }}>
+                <Typography variant="h6">Slab</Typography>
+              </Box>
+            </NavLink>
+            <NavLink
+              to="Dynamiccomponent"
+              style={({ isActive }) => ({
+                textDecoration: isActive ? 'underline' : 'none',
+                fontWeight: isActive ? 'bold' : 'normal',
+                color: isActive ? 'blue' : 'inherit',
+              })}
+            >
+              <Box sx={{ textAlign: 'center', cursor: 'pointer' }}>
+                <Typography variant="h6">Dynamic</Typography>
+              </Box>
+            </NavLink>
+            <NavLink
+              to="Intercitycomponent"
+              style={({ isActive }) => ({
+                textDecoration: isActive ? 'underline' : 'none',
+                fontWeight: isActive ? 'bold' : 'normal',
+                color: isActive ? 'blue' : 'inherit',
+              })}
+            >
+              <Box sx={{ textAlign: 'center', cursor: 'pointer' }}>
+                <Typography variant="h6">Intercity</Typography>
+              </Box>
+            </NavLink>
+            <NavLink
+              to="Hourlycomponent"
+              style={({ isActive }) => ({
+                textDecoration: isActive ? 'underline' : 'none',
+                fontWeight: isActive ? 'bold' : 'normal',
+                color: isActive ? 'blue' : 'inherit',
+              })}
+            >
+              <Box sx={{ textAlign: 'center', cursor: 'pointer' }}>
+                <Typography variant="h6">Hourly</Typography>
+              </Box>
+            </NavLink>
+          </Box>
+          {/* Nested Routes */}
+          <Box sx={{ marginTop: 4, padding: 2 }}>
+            <Routes>
+              <Route path="Flatcomponent" element={<FlatComponent />} />
+              {/* Add other routes as needed */}
+            </Routes>
+          </Box>
+        </CardContent>
+      </Card>
     </Box>
   );
 };

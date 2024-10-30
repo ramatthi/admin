@@ -13,13 +13,11 @@ import { ExampleFetchComponent } from '../ExampleFetchComponent';
 
 export const ExampleComponent = () => (
   <Page themeId="tool">
-    <Header title="Welcome to adminpricing!" subtitle="Optional subtitle">
-      <HeaderLabel label="Owner" value="Team X" />
-      <HeaderLabel label="Lifecycle" value="Alpha" />
+    <Header title="Welcome to adminpricing!" subtitle="">
     </Header>
     <Content>
-      <ContentHeader title="">
-      </ContentHeader>
+      {/* <ContentHeader title="Pricing">
+      </ContentHeader> */}
       <Grid container direction="column">
         {/* <Grid item>
           <InfoCard title="Information card">
